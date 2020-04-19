@@ -3,6 +3,7 @@ import "./auth";
 
 import { isAuthenticated } from "./auth";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Login extends Component {
   state = {};
@@ -17,7 +18,8 @@ class Login extends Component {
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                  <i className="fa fa-user"></i>
+                  <FontAwesomeIcon icon="user" />
+                  {/* <FontAwesomeIcon icon={['fab', 'apple']} /> */}
                 </span>
               </div>
               <input
@@ -33,7 +35,8 @@ class Login extends Component {
               <div className="input-group-prepend">
                 <span className="input-group-text">
                   {" "}
-                  <i className="fa fa-lock"></i>{" "}
+                  <FontAwesomeIcon icon="lock" />
+                  {" "}
                 </span>
               </div>
               <input
