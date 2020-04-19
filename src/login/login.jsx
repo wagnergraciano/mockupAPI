@@ -6,14 +6,37 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Login extends Component {
-  state = {};
+  constructor(props){
+    super(props);
+    this.state={
+      username: '',
+      password: '',
+    };
+
+    this.handleChangeUsername = this.handleChangeUsername.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChangeUsername(event) {
+    this.setState({username: event.target.value});
+  }
+  handleChangePassword(event) {
+    this.setState({password: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Username '+ this.state.username+'\nPassword: '+ this.state.password);
+    event.preventDefault();
+  }
+
   render() {
     const loginRegLink = (
       <div className="card-body col-12 col-md-3" style={{ margin: "0 auto" }}>
         <h4 className="card-title text-center mb-4 mt-1">Sign in</h4>
         <hr />
         <p className="text-success text-center">Some message goes here</p>
-        <form action="/login" method="POST">
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <div className="input-group">
               <div className="input-group-prepend">
@@ -27,6 +50,7 @@ class Login extends Component {
                 className="form-control"
                 placeholder="Email or login"
                 type="text"
+                username={this.state.username} onChange={this.handleChangeUsername}
               />
             </div>
           </div>
@@ -44,6 +68,7 @@ class Login extends Component {
                 placeholder="******"
                 type="password"
                 name="password"
+                password={this.state.password} onChange={this.handleChangePassword}
               />
             </div>
           </div>
