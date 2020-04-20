@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-import "./shared/auth";
 
 import { isAuthenticated } from "./shared/auth";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import "./shared/auth";
+// import Validator from './shared/validator';
+import LoginService from './shared/loginService';
+
 class Login extends Component {
   constructor(props){
     super(props);
+    this.loginService = new LoginService();
+    // this.validator = new Validator();  
     this.state={
-      username: '',
+      email: '',
       password: '',
     };
 
@@ -38,7 +43,9 @@ class Login extends Component {
 
   handleSubmit(event) {
     // if (this.validator.validateInputs(this.state))
-    alert('Username '+ this.state.username+'\nPassword: '+ this.state.password);
+    // this.props.onSubmit(this.state);
+    alert('Username: '+ this.state.email+'\nPassword: '+ this.state.password);
+    console.log(this.loginService.login(this.state));
     event.preventDefault();
   }
 
@@ -58,11 +65,11 @@ class Login extends Component {
                 </span>
               </div>
               <input
-                name="username"
+                name="email"
                 className="form-control"
                 placeholder="Email or login"
                 type="text"
-                username={this.state.username}
+                email={this.state.email}
                 required onChange={this.handleInputChange}
               />
             </div>
