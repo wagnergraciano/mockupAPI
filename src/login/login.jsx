@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./auth";
+import "./shared/auth";
 
-import { isAuthenticated } from "./auth";
+import { isAuthenticated } from "./shared/auth";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -13,19 +13,31 @@ class Login extends Component {
       password: '',
     };
 
-    this.handleChangeUsername = this.handleChangeUsername.bind(this);
-    this.handleChangePassword = this.handleChangePassword.bind(this);
+    // this.handleChangeUsername = this.handleChangeUsername.bind(this);
+    // this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChangeUsername(event) {
-    this.setState({username: event.target.value});
-  }
-  handleChangePassword(event) {
-    this.setState({password: event.target.value});
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
+  // handleChangeUsername(event) {
+  //   this.setState({username: event.target.value});
+  // }
+  // handleChangePassword(event) {
+  //   this.setState({password: event.target.value});
+  // }
+
   handleSubmit(event) {
+    // if (this.validator.validateInputs(this.state))
     alert('Username '+ this.state.username+'\nPassword: '+ this.state.password);
     event.preventDefault();
   }
@@ -50,7 +62,8 @@ class Login extends Component {
                 className="form-control"
                 placeholder="Email or login"
                 type="text"
-                username={this.state.username} onChange={this.handleChangeUsername}
+                username={this.state.username}
+                required onChange={this.handleInputChange}
               />
             </div>
           </div>
@@ -68,7 +81,8 @@ class Login extends Component {
                 placeholder="******"
                 type="password"
                 name="password"
-                password={this.state.password} onChange={this.handleChangePassword}
+                password={this.state.password}
+                required onChange={this.handleInputChange}
               />
             </div>
           </div>

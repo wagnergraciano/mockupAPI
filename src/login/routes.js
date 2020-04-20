@@ -1,6 +1,6 @@
 import React from "react";
 
-import { isAuthenticated } from "./auth";
+import { isAuthenticated } from "./shared/auth";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
