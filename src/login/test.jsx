@@ -6,7 +6,9 @@ class Test extends Component{
     constructor(props){
         super(props);
         this.state = {
-            data: '',
+            response: {},
+            data: {},
+            user: {},
         }
         this.loginService = new LoginService();
         this.teste = {
@@ -17,14 +19,17 @@ class Test extends Component{
 
     componentDidMount(){
         this.loginService.login(this.teste)
-        .then(response => this.setState({data: JSON.stringify(response)}))
+        .then(response => {
+          this.setState({response: response})
+          this.setState({data: response.data})
+          this.setState({user: response.data.user})
+        })
     }
-
 
     render() {
         return (
           <div>
-            The response is {this.state.data}.
+            The response is {JSON.stringify(this.state.user)}.
           </div>
         );
       }
