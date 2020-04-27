@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 
 import Btn from './btn';
-import PersonalInfo from './personalInfo';
-import JobDetails from './jobDetails';
-import AllInfo from './allInfo';
+import Step1 from './step1';
+import Step2 from './step2';
+import Step3 from './step3';
+import Step4 from './step4';
+import Step5 from './step5';
 
 class Main extends Component{
     constructor(props){
@@ -49,39 +51,30 @@ class Main extends Component{
     }
 
     showStep = () => {
-        const {step, firstName, lastName, jobTitle, jobLocation, jobCompany} = this.state;
+        const {step} = this.state;
         if(step === 1){
             return (
-                <PersonalInfo 
-                    handleChange = {this.handleChange}
-                    nextStep = {this.nextStep}
-                    firstName = {firstName}
-                    lastName = {lastName}
-                />
+                <Step1 />
             );
         }
-        if(step === 2){
+        else if(step === 2){
             return (
-                <JobDetails
-                    handleChange = {this.handleChange}
-                    nextStep = {this.nextStep}
-                    prevStep = {this.prevStep}
-                    jobTitle = {jobTitle}
-                    jobLocation = {jobLocation}
-                    jobCompany = {jobCompany}
-                />
+                <Step2 />
             );
         }
-        if(step === 3){
+        else if(step === 3){
             return (
-                <AllInfo
-                    prevStep = {this.prevStep}
-                    firstName = {firstName}
-                    lastName = {lastName}
-                    jobTitle = {jobTitle}
-                    jobLocation = {jobLocation}
-                    jobCompany = {jobCompany}
-                />
+                <Step3 />
+            );
+        }
+        else if(step === 4){
+            return(
+                <Step4 />
+            );
+        }
+        else{
+            return(
+                <Step5 />
             );
         }
     }
