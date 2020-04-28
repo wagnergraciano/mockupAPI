@@ -6,25 +6,24 @@ class LoginService {
     }
 
     async login(userData) {
-        // console.log("ItemService.createItem():");
-        console.log(userData);
-        return fetch(this.config.LOGIN_URL, {
-          method: "POST",
-          headers: {
-                "Content-Type": "application/json"
-            },
-          body: JSON.stringify(userData)
+      // console.log("ItemService.createItem():");
+      return fetch(this.config.URL+'auth/token', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+      })
+        .then(response => {
+         if (!response.ok) {
+              this.handleResponseError(response);
+          }
+          return response.json();
         })
-          .then(response => {
-           if (!response.ok) {
-                this.handleResponseError(response);
-            }
-            return response.json();
-          })
-          .catch(error => {
-            this.handleError(error);
-          });
-    }
+        .catch(error => {
+          this.handleError(error);
+        });
+  }
 
     handleResponseError(response) {
       throw new Error("HTTP error, status = " + response.status);

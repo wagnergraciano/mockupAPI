@@ -6,13 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import "./shared/auth";
 // import Validator from './shared/validator';
-// import LoginService from './shared/loginService';
+import LoginService from './shared/loginService';
 import Test from './test.jsx';
 
 class Login extends Component {
   constructor(props){
     super(props);
-    // this.loginService = new LoginService();
+    this.loginService = new LoginService();
     // this.validator = new Validator();  
     this.state={
       email: '',
@@ -44,14 +44,15 @@ class Login extends Component {
   // }
 
   handleSubmit(event) {
-    // if (this.validator.validateInputs(this.state))
-    // this.props.onSubmit(this.state);
-    alert('Username: '+ this.state.email+'\nPassword: '+ this.state.password);
-    // this.loginService.login(this.state);
-    this.setState({
-      test: true,
-    });
     event.preventDefault();
+    // if (this.validator.validateInputs(this.state))
+    alert('Username: '+ this.state.email+'\nPassword: '+ this.state.password);
+    this.loginService.login(this.state).then(response => {
+      console.log(response);
+    });
+    // this.setState({
+    //   test: true,
+    // });
   }
 
   render() {
@@ -99,12 +100,12 @@ class Login extends Component {
             </div>
           </div>
           <div className="form-group">
-            <Link to="index">
+            {/* <Link to="index"> */}
             <button type="submit" className="btn btn-danger btn-block">
               {" "}
               Login{" "}
             </button>
-            </Link>
+            {/* </Link> */}
           </div>
           <p className="text-center">
             <Link className="btn">Forgot password?{isAuthenticated()}</Link>
