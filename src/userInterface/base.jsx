@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import '../assets/cards.scss';
+
 import Navbar from './navbar';
 import Sidebar from './sidebar';
 import Routes from '../login/routes';
