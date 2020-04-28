@@ -6,18 +6,14 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import './assets/dashboard.scss';
 
-import Main from './wizard/main'
-import Login from './login/login';
-import Navbar from './userInterface/navbar';
-import Sidebar from './userInterface/sidebar';
+import Routes from './login/routes';
 
 library.add(fab, faLock , faUser)
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Sidebar />
+      <Routes />
     </div>
   );
 }

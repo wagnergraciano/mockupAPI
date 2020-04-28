@@ -7,7 +7,7 @@ import Step3 from './step3';
 import Step4 from './step4';
 import Step5 from './step5';
 
-class Main extends Component{
+class Wizard extends Component{
     constructor(props){
         super(props); 
         this.state = {
@@ -83,7 +83,7 @@ class Main extends Component{
         const {step} = this.state;
         return(
             <>
-            <button type="button" className={"btn btn-primary " + this.state.finalizar} data-toggle="modal" data-target="#exampleModal" data-backdrop="static">
+            <button type="button" className={"btn btn-sm btn-outline-secondary " + this.state.finalizar} data-show="true" data-toggle="modal" data-target="#exampleModal" data-backdrop="static">
             Primeiros passos
             </button>
 
@@ -112,4 +112,4 @@ class Main extends Component{
     }
 }
 
-export default Main;
+export default Wizard;
