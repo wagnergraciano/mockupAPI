@@ -7,7 +7,7 @@ class LoginService {
 
     async login(userData) {
       // console.log("ItemService.createItem():");
-      return fetch(this.config.URL+'auth/token', {
+      return fetch(this.config.baseURL+'auth/token', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -23,7 +23,7 @@ class LoginService {
         .catch(error => {
           this.handleError(error);
         });
-  }
+    }
 
     handleResponseError(response) {
       throw new Error("HTTP error, status = " + response.status);
