@@ -22,8 +22,8 @@ class Test extends Component{
       this.loginService.login(this.teste)
       .then(response => {
         this.setState({response: response})
-        // this.setState({data: response.data})
-        // this.setState({user: response.data.user})
+        this.setState({data: response.data})
+        this.setState({user: response.data.user})
       })
 
       // Axios.post('https://analytics.flexcontact.com.br:56566/api/stag/auth/token',this.teste).then((response) => {
@@ -39,7 +39,9 @@ class Test extends Component{
     render() {
         return (
           <div>
-            The response is {JSON.stringify(this.state.response)}.
+            The response is {JSON.stringify(this.state.response)}.<br/>
+            The data is {JSON.stringify(this.state.data)}.<br/>
+            The user is {JSON.stringify(this.state.user)}.<br/>
           </div>
         );
       }

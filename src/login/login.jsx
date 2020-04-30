@@ -100,12 +100,12 @@ class Login extends Component {
             </div>
           </div>
           <div className="form-group">
-            <Link to="index">
+            {/* <Link to="index"> */}
             <button type="submit" className="btn btn-danger btn-block">
               {" "}
               Login{" "}
             </button>
-            </Link>
+            {/* </Link> */}
           </div>
           <p className="text-center">
             <Link className="btn">Forgot password?{isAuthenticated()}</Link>
