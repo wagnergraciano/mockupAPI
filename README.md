@@ -2,6 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+link to consume the rest API:
+https://dzone.com/articles/consuming-rest-api-with-reactjs
+https://css-tricks.com/using-fetch/
+
+
 In the project directory, you can run:
 
 ### `npm start`
